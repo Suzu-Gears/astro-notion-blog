@@ -1,0 +1,57 @@
+---
+async function getRedirectUrl(url: string): Promise<string> {
+  const response = await fetch(url, {
+    method: 'HEAD',
+    redirect: 'manual',
+  })
+
+  if (response.status >= 300 && response.status < 400) {
+    return response.headers.get('Location') || ''
+  } else {
+    throw new Error('No redirect found')
+  }
+}
+
+// 使用例
+getRedirectUrl(
+  'https://gmail4415676.autodesk360.com/shares/public/SH30dd5QT870c25f12fcedcc3c4e310ae420'
+)
+  .then((redirectUrl) => {
+    console.log('Redirect URL:', redirectUrl)
+  })
+  .catch((error) => {
+    console.error('Error:', error)
+  })
+
+import http from 'node:http'
+import https from 'node:https'
+
+interface RedirectResponse {
+  headers: {
+    location?: string
+  }
+}
+//---------------------------------------------------
+const src_url = 'https://a360.co/4gzMHka'
+
+async function getRedirectUrl2(srcUrl: string): Promise<string | undefined> {
+  const client = srcUrl.startsWith('https') ? https : http
+
+  return new Promise((resolve, reject) => {
+    client
+      .get(srcUrl, (res: RedirectResponse) => {
+        resolve(res.headers.location)
+      })
+      .on('error', reject)
+  })
+}
+
+;(async () => {
+  try {
+    const redirectUrl = await getRedirectUrl(src_url)
+    console.log(redirectUrl)
+  } catch (err) {
+    console.error(err)
+  }
+})()
+---
