@@ -36,7 +36,7 @@ try {
     isTweetURL(url) ? (
       <TweetEmbed block={block} url={url} />
     ) : isTikTokURL(url) ? (
-      <TikTokEmbed url={url} />
+      <TikTokEmbed block={block} url={url} />
     ) : isInstagramURL(url) ? (
       <InstagramEmbed block={block} url={url} />
     ) : isPinterestURL(url) ? (
