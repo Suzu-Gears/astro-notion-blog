@@ -42,7 +42,7 @@ try {
     ) : isPinterestURL(url) ? (
       <PinterestEmbed block={block} url={url} />
     ) : isCodePenURL(url) ? (
-      <CodePenEmbed url={url} />
+      <CodePenEmbed block={block} url={url} />
     ) : isCircuitSimulatorAppletURL(url) ? (
       <CircuitSimulatorAppletEmbed url={url} />
     ) : (
