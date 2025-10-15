@@ -1,8 +1,12 @@
 ---
+import * as interfaces from '../../lib/interfaces.ts'
+import Caption from './Caption.astro'
+
 export interface Props {
+  block: interfaces.Block
   url: URL
 }
-const { url } = Astro.props
+const { block, url } = Astro.props
 const param = url.searchParams.get('ctz')
 ---
 
@@ -10,6 +14,7 @@ const param = url.searchParams.get('ctz')
   <iframe
     src={`https://www.falstad.com/circuit/circuitjs.html?ctz=${param}`}
     allowfullscreen></iframe>
+  <Caption richTexts={block.Embed?.Caption ?? []} />
 </div>
 
 <style>

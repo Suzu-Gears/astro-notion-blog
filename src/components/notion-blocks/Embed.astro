@@ -44,7 +44,7 @@ try {
     ) : isCodePenURL(url) ? (
       <CodePenEmbed block={block} url={url} />
     ) : isCircuitSimulatorAppletURL(url) ? (
-      <CircuitSimulatorAppletEmbed url={url} />
+      <CircuitSimulatorAppletEmbed block={block} url={url} />
     ) : (
       <Bookmark block={block} urlMap={urlMap} />
     )
