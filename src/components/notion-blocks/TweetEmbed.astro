@@ -1,9 +1,13 @@
 ---
+import * as interfaces from '../../lib/interfaces.ts'
+import Caption from './Caption.astro'
+
 export interface Props {
+  block: interfaces.Block
   url: URL
 }
 
-const { url } = Astro.props
+const { block, url } = Astro.props
 
 const postURL =
   url.hostname === 'x.com' || url.hostname === 'www.x.com'
@@ -15,6 +19,7 @@ const postURL =
   <blockquote class="twitter-tweet">
     <a href={postURL}></a>
   </blockquote>
+  <Caption richTexts={block.Embed?.Caption ?? []} />
 </div>
 
 <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
