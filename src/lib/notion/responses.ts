@@ -414,6 +414,7 @@ interface ChildDatabase {
 }
 
 interface Embed {
+  caption?: RichTextObject[]
   url: string
 }
 

@@ -714,6 +714,7 @@ function _buildBlock(blockObject: responses.BlockObject): Block {
     case 'embed':
       if (blockObject.embed) {
         const embed: Embed = {
+          Caption: blockObject.embed.caption?.map(_buildRichText) || [],
           Url: blockObject.embed.url,
         }
         block.Embed = embed
