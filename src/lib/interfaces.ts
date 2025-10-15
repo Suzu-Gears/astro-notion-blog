@@ -165,6 +165,7 @@ export interface Toggle {
 }
 
 export interface Embed {
+  Caption: RichText[]
   Url: string
 }
 
