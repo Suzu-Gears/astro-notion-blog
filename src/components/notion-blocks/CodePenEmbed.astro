@@ -11,19 +11,22 @@ const user = url.pathname.split('/')[1]
 const id = url.pathname.split('/')[3]
 ---
 
-<p
-  class="codepen"
-  data-slug-hash={id.toString()}
-  data-user={user.toString()}
-  style="box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;"
->
-</p>
-<Caption richTexts={block.Embed?.Caption ?? []} />
+<div class="codepen-wrapper">
+  <p
+    class="codepen"
+    data-slug-hash={id.toString()}
+    data-user={user.toString()}
+    style="box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;"
+  >
+  </p>
+  <Caption richTexts={block.Embed?.Caption ?? []} />
+</div>
 
 <script async src="https://cpwebassets.codepen.io/assets/embed/ei.js"></script>
 
 <style is:global>
   .cp_embed_wrapper {
+    margin-block-start: 0.6rem;
     width: 100%;
     aspect-ratio: 1.6 / 1;
     background-color: #fff;
