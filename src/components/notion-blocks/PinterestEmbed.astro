@@ -1,11 +1,16 @@
 ---
+import * as interfaces from '../../lib/interfaces.ts'
+import Caption from './Caption.astro'
+
 export interface Props {
+  block: interfaces.Block
   url: URL
 }
-const { url } = Astro.props
+const { block, url } = Astro.props
 ---
 
 <a href={url.toString()} data-pin-do="embedPin"></a>
+<Caption richTexts={block.Embed?.Caption ?? []} />
 
 <script
   type="text/javascript"

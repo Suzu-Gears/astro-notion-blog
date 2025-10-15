@@ -40,7 +40,7 @@ try {
     ) : isInstagramURL(url) ? (
       <InstagramEmbed block={block} url={url} />
     ) : isPinterestURL(url) ? (
-      <PinterestEmbed url={url} />
+      <PinterestEmbed block={block} url={url} />
     ) : isCodePenURL(url) ? (
       <CodePenEmbed url={url} />
     ) : isCircuitSimulatorAppletURL(url) ? (
