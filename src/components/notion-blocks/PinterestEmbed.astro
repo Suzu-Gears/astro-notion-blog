@@ -9,8 +9,10 @@ export interface Props {
 const { block, url } = Astro.props
 ---
 
-<a href={url.toString()} data-pin-do="embedPin"></a>
-<Caption richTexts={block.Embed?.Caption ?? []} />
+<div class="pinterest-embed-wrapper">
+  <a href={url.toString()} data-pin-do="embedPin"></a>
+  <Caption richTexts={block.Embed?.Caption ?? []} />
+</div>
 
 <script
   type="text/javascript"
@@ -18,3 +20,17 @@ const { block, url } = Astro.props
   defer
   src="//assets.pinterest.com/js/pinit.js"
 ></script>
+
+<style>
+  .pinterest-embed-wrapper {
+    margin-block-start: 0.6rem;
+    margin-inline: auto;
+    max-width: 240px;
+  }
+</style>
+
+<style is:global>
+  .pinterest-embed-wrapper > span {
+    display: block !important;
+  }
+</style>
