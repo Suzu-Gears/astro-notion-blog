@@ -28,9 +28,16 @@ const postURL =
   .tweet-embed {
     width: 100%;
     max-width: 640px;
-    margin: auto;
+    margin-block: 0.6rem;
+    margin-inline: auto;
   }
   .tweet-embed div:first-child div:first-child {
     margin: auto;
+  }
+</style>
+
+<style is:global>
+  .tweet-embed > .twitter-tweet {
+    margin-block: 0 !important;
   }
 </style>
